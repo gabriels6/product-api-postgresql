@@ -73,7 +73,9 @@ module.exports = {
     },
     async DeleteProduct(request,response){
         try{
-            var {id} = request.params;
+            var {id,token} = request.params;
+
+            if(token !== process.env.TOKEN) return response.status(401).send('Incorrect token');
 
             const result = await CRUD.Delete("product",`id = ${id}`);
 

@@ -14,6 +14,9 @@ In local Machine:
 
 method: GET - localhost:3333/
 
+
+
+
 Returns a list of products, each product contains:
 
 1. productid - The primary Key, as Integer with Auto-Increment
@@ -42,6 +45,38 @@ returns:
         "categoryname": "Eletronics"
     }
 ]
+
+## Select By Id
+
+Route:
+
+In local Machine:
+
+method: GET - localhost:3333/<product_id>
+
+
+
+Returns the product of the id. each product contains:
+
+1. productid - The primary Key, as Integer with Auto-Increment
+2. productname - The name of the product, as String
+3. price - The price of the product
+4. categoryname - The Category which this product is in
+
+#### Example
+
+method:GET
+action: localhost:3333/8
+
+returns:
+
+{
+    "productid": 8,
+    "productname": "Laptop",
+    "price": 3799.99,
+    "categoryname": "Eletronics"
+}
+
 
 ## Insert
 
@@ -84,18 +119,20 @@ method: PUT - localhost:3333/?productId=<product_id>&productPrice=<productPrice>
 method: PUT
 action: localhost:3333?productId=8&productPrice=3799.99
 
-## Delete
+## Delete (Restricted)
 
 Route:
 
 In local machine:
 
-method: DELETE - localhost:/<product_id>
+method: DELETE - localhost:/<product_id>/<token>
 
 #### Example:
 
 method: DELETE 
-action: localhost:/9
+action: localhost:/9/TOKEN_VALUE*
+
+*TOKEN_VALUE: Restricted to people authorized by the Creator
 
 # Status
 

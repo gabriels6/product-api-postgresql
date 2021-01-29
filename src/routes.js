@@ -8,7 +8,7 @@ routes.get('/',ProductController.GetProducts);
 routes.get("/:id",ProductController.GetProductById);
 routes.post('/',ProductController.AddProduct);
 routes.put('/',ProductController.UpdateProduct);
-routes.delete('/:id',ProductController.DeleteProduct);
+routes.delete('/:id/:token',ProductController.DeleteProduct);
 
 
 module.exports = routes;
